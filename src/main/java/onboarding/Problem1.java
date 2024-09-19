@@ -4,6 +4,22 @@ import java.util.List;
 
 class Problem1 {
 
+    public static int solution(List<Integer> pobi, List<Integer> crong) {
+        int answer;
+
+        if(isException(pobi) || isException(crong))
+            return -1;
+
+        if(findMaxValueByPages(pobi) > findMaxValueByPages(crong))
+            answer = 1;
+        else if(findMaxValueByPages(pobi) < findMaxValueByPages(crong))
+            answer = 2;
+        else
+            answer = 0;
+
+        return answer;
+    }
+
     private static boolean isException(List<Integer> pages){
         if(pages.get(0) < 1 || pages.get(1) > 400 || pages.get(0) > pages.get(1))
             return true;
@@ -28,21 +44,5 @@ class Problem1 {
         }
 
         return Math.max(sum,mul);
-    }
-
-    public static int solution(List<Integer> pobi, List<Integer> crong) {
-        int answer;
-
-        if(isException(pobi) || isException(crong))
-            return -1;
-
-        if(findMaxValueByPages(pobi) > findMaxValueByPages(crong))
-            answer = 1;
-        else if(findMaxValueByPages(pobi) < findMaxValueByPages(crong))
-            answer = 2;
-        else
-            answer = 0;
-
-        return answer;
     }
 }
