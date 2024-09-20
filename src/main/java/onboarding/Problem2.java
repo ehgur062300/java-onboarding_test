@@ -3,7 +3,7 @@ package onboarding;
 import java.util.Stack;
 
 public class Problem2 {
-    private static Stack<Character> stack = new Stack<>();
+    private static final Stack<Character> stack = new Stack<>();
 
     public static String solution(String cryptogram) {
         return decryptCode(cryptogram);
