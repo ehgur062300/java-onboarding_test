@@ -9,24 +9,23 @@ public class Problem4 {
     private String convertWord(String word){
         StringBuilder sb = new StringBuilder();
         for (Character ch : word.toCharArray()) {
-            if(ch == ' ')
-                sb.append(' ');
-            else if(ch > 90)
+            if(Character.isLowerCase(ch))
                 sb.append(lowerConvert(ch));
-            else
+
+            else if(Character.isUpperCase(ch))
                 sb.append(upperConvert(ch));
+
+            else
+                sb.append(" ");
         }
         return sb.toString();
     }
 
     private char upperConvert(char c){
-        int num = 155-(int)c;
-        return (char)num;
+        return (char) ('Z' - (c - 'A'));  // 대문자 변환
     }
 
     private char lowerConvert(char c){
-        return (char) (219-(int)c);
+        return (char) ('z' - (c - 'a'));  // 소문자 변환
     }
-
-
 }
